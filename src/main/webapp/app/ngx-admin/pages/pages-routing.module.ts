@@ -21,75 +21,43 @@ const routes: Routes = [
             },
             {
                 path: 'ui-features',
-                loadChildren: () =>
-                    new Promise(resolve => {
-                        (require as any).ensure([], require => {
-                            resolve(require('./ui-features/ui-features.module').UiFeaturesModule);
-                        });
-                    })
+                loadChildren: './ui-features/ui-features.module#UiFeaturesModule'
             },
             {
-                path: 'components',
-                loadChildren: () =>
-                    new Promise(resolve => {
-                        (require as any).ensure([], require => {
-                            resolve(require('./components/components.module').ComponentsModule);
-                        });
-                    })
+                path: 'modal-overlays',
+                loadChildren: './modal-overlays/modal-overlays.module#ModalOverlaysModule'
+            },
+            {
+                path: 'extra-components',
+                loadChildren: './extra-components/extra-components.module#ExtraComponentsModule'
+            },
+            {
+                path: 'bootstrap',
+                loadChildren: './bootstrap/bootstrap.module#BootstrapModule'
             },
             {
                 path: 'maps',
-                loadChildren: () =>
-                    new Promise(resolve => {
-                        (require as any).ensure([], require => {
-                            resolve(require('./maps/maps.module').MapsModule);
-                        });
-                    })
+                loadChildren: './maps/maps.module#MapsModule'
             },
             {
                 path: 'charts',
-                loadChildren: () =>
-                    new Promise(resolve => {
-                        (require as any).ensure([], require => {
-                            resolve(require('./charts/charts.module').ChartsModule);
-                        });
-                    })
+                loadChildren: './charts/charts.module#ChartsModule'
             },
             {
                 path: 'editors',
-                loadChildren: () =>
-                    new Promise(resolve => {
-                        (require as any).ensure([], require => {
-                            resolve(require('./editors/editors.module').EditorsModule);
-                        });
-                    })
+                loadChildren: './editors/editors.module#EditorsModule'
             },
             {
                 path: 'forms',
-                loadChildren: () =>
-                    new Promise(resolve => {
-                        (require as any).ensure([], require => {
-                            resolve(require('./forms/forms.module').FormsModule);
-                        });
-                    })
+                loadChildren: './forms/forms.module#FormsModule'
             },
             {
                 path: 'tables',
-                loadChildren: () =>
-                    new Promise(resolve => {
-                        (require as any).ensure([], require => {
-                            resolve(require('./tables/tables.module').TablesModule);
-                        });
-                    })
+                loadChildren: './tables/tables.module#TablesModule'
             },
             {
                 path: 'miscellaneous',
-                loadChildren: () =>
-                    new Promise(resolve => {
-                        (require as any).ensure([], require => {
-                            resolve(require('./miscellaneous/miscellaneous.module').MiscellaneousModule);
-                        });
-                    })
+                loadChildren: './miscellaneous/miscellaneous.module#MiscellaneousModule'
             },
             {
                 path: '',

@@ -10,15 +10,7 @@ import {
 } from '@nebular/auth';
 
 const routes: Routes = [
-    {
-        path: 'pages',
-        loadChildren: () =>
-            new Promise(resolve => {
-                (require as any).ensure([], require => {
-                    resolve(require('./pages/pages.module').PagesModule);
-                });
-            })
-    },
+    { path: 'pages', loadChildren: 'app/ngx-admin/pages/pages.module#PagesModule' },
     {
         path: 'auth',
         component: NbAuthComponent,

@@ -2,8 +2,8 @@ import { Component, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { combineLatest } from 'rxjs';
 import { takeWhile } from 'rxjs/operators';
-import { NgxEchartsService } from 'ngx-echarts';
 import { NbThemeService } from '@nebular/theme';
+import { registerMap } from 'echarts';
 
 @Component({
     selector: 'ngx-bubble-map',
@@ -29,11 +29,11 @@ export class BubbleMapComponent implements OnDestroy {
 
     private alive = true;
 
-    constructor(private theme: NbThemeService, private http: HttpClient, private es: NgxEchartsService) {
+    constructor(private theme: NbThemeService, private http: HttpClient) {
         combineLatest([this.http.get('assets/map/world.json'), this.theme.getJsTheme()])
             .pipe(takeWhile(() => this.alive))
             .subscribe(([map, config]: [any, any]) => {
-                this.es.registerMap('world', map);
+                registerMap('world', map);
 
                 const colors = config.variables;
                 this.bubbleTheme = config.variables.bubbleMap;

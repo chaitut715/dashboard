@@ -3,10 +3,6 @@
  * Copyright Akveo. All Rights Reserved.
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
-
-import '../vendor.ts';
-// import './typings.d.ts';
-
 import { APP_BASE_HREF } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,21 +16,18 @@ import { ThemeModule } from './@theme/theme.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    AppRoutingModule,
+    declarations: [AppComponent],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        AppRoutingModule,
 
-    NgbModule.forRoot(),
-    ThemeModule.forRoot(),
-    CoreModule.forRoot(),
-  ],
-  bootstrap: [AppComponent],
-  providers: [
-    { provide: APP_BASE_HREF, useValue: '/' },
-  ],
+        NgbModule.forRoot(),
+        ThemeModule.forRoot(),
+        CoreModule.forRoot()
+    ],
+    bootstrap: [AppComponent],
+    providers: [{ provide: APP_BASE_HREF, useValue: '/' }]
 })
-export class AppModule {
-}
+export class AppModule {}
